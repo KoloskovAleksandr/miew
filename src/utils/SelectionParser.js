@@ -75,7 +75,7 @@
 */
 var parser = (function(){
 var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,4],$V1=[1,5],$V2=[1,6],$V3=[1,7],$V4=[1,8],$V5=[1,9],$V6=[1,11],$V7=[1,12],$V8=[5,7,8,11],$V9=[1,17],$Va=[1,22],$Vb=[1,20],$Vc=[1,21],$Vd=[5,7,8,11,19];
-var parser = {trace: function trace() { },
+var parser = {trace: function trace () { },
 yy: {},
 symbols_: {"error":2,"Program":3,"Expression":4,"EOF":5,"Selector":6,"OR":7,"AND":8,"NOT":9,"(":10,")":11,"SELECTOR":12,"NAMED_SELECTOR":13,"SELECTOR_RANGED":14,"RangeList":15,"SELECTOR_NAMED":16,"NameList":17,"Range":18,",":19,"NUMBER":20,":":21,"Name":22,"IDENTIFIER":23,"STRING":24,"$accept":0,"$end":1},
 terminals_: {2:"error",5:"EOF",7:"OR",8:"AND",9:"NOT",10:"(",11:")",12:"SELECTOR",13:"NAMED_SELECTOR",14:"SELECTOR_RANGED",16:"SELECTOR_NAMED",19:",",20:"NUMBER",21:":",23:"IDENTIFIER",24:"STRING"},
@@ -128,7 +128,7 @@ break;
 },
 table: [{3:1,4:2,6:3,9:$V0,10:$V1,12:$V2,13:$V3,14:$V4,16:$V5},{1:[3]},{5:[1,10],7:$V6,8:$V7},o($V8,[2,2]),{4:13,6:3,9:$V0,10:$V1,12:$V2,13:$V3,14:$V4,16:$V5},{4:14,6:3,9:$V0,10:$V1,12:$V2,13:$V3,14:$V4,16:$V5},o($V8,[2,7]),o($V8,[2,8]),{15:15,18:16,20:$V9},{17:18,20:$Va,22:19,23:$Vb,24:$Vc},{1:[2,1]},{4:23,6:3,9:$V0,10:$V1,12:$V2,13:$V3,14:$V4,16:$V5},{4:24,6:3,9:$V0,10:$V1,12:$V2,13:$V3,14:$V4,16:$V5},o($V8,[2,5]),{7:$V6,8:$V7,11:[1,25]},o($V8,[2,9],{19:[1,26]}),o($Vd,[2,11]),o($Vd,[2,13],{21:[1,27]}),o($V8,[2,10],{19:[1,28]}),o($Vd,[2,15]),o($Vd,[2,17]),o($Vd,[2,18]),o($Vd,[2,19]),o([5,7,11],[2,3],{8:$V7}),o($V8,[2,4]),o($V8,[2,6]),{18:29,20:$V9},{20:[1,30]},{20:$Va,22:31,23:$Vb,24:$Vc},o($Vd,[2,12]),o($Vd,[2,14]),o($Vd,[2,16])],
 defaultActions: {10:[2,1]},
-parseError: function parseError(str, hash) {
+parseError: function parseError (str, hash) {
     if (hash.recoverable) {
         this.trace(str);
     } else {
@@ -421,7 +421,7 @@ showPosition:function () {
     },
 
 // test the lexed token: return FALSE when not a match, otherwise return token
-test_match:function (match, indexed_rule) {
+test_match:function(match, indexed_rule) {
         var token,
             lines,
             backup;
@@ -551,7 +551,7 @@ next:function () {
     },
 
 // return next match that has a token
-lex:function lex() {
+lex:function lex () {
         var r = this.next();
         if (r) {
             return r;
@@ -561,12 +561,12 @@ lex:function lex() {
     },
 
 // activates a new lexer condition state (pushes the new lexer condition state onto the condition stack)
-begin:function begin(condition) {
+begin:function begin (condition) {
         this.conditionStack.push(condition);
     },
 
 // pop the previously active lexer condition state off the condition stack
-popState:function popState() {
+popState:function popState () {
         var n = this.conditionStack.length - 1;
         if (n > 0) {
             return this.conditionStack.pop();
@@ -576,7 +576,7 @@ popState:function popState() {
     },
 
 // produce the lexer rule set which is active for the currently active lexer condition state
-_currentRules:function _currentRules() {
+_currentRules:function _currentRules () {
         if (this.conditionStack.length && this.conditionStack[this.conditionStack.length - 1]) {
             return this.conditions[this.conditionStack[this.conditionStack.length - 1]].rules;
         } else {
@@ -585,7 +585,7 @@ _currentRules:function _currentRules() {
     },
 
 // return the currently active lexer condition state; when an index argument is provided it produces the N-th previous condition state, if available
-topState:function topState(n) {
+topState:function topState (n) {
         n = this.conditionStack.length - 1 - Math.abs(n || 0);
         if (n >= 0) {
             return this.conditionStack[n];
@@ -595,7 +595,7 @@ topState:function topState(n) {
     },
 
 // alias for begin(condition)
-pushState:function pushState(condition) {
+pushState:function pushState (condition) {
         this.begin(condition);
     },
 

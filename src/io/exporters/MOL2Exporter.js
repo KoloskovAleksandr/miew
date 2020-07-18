@@ -28,7 +28,7 @@ export default class MOL2Exporter extends Exporter {
       curStr += atoms[i].position.x.toFixed(4) + SMALL_IDENT;
       curStr += atoms[i].position.y.toFixed(4) + SMALL_IDENT;
       curStr += atoms[i].position.z.toFixed(4) + SMALL_IDENT;
-      curStr += `${atoms[i].element.name}.1${SMALL_IDENT}`;
+      curStr += `${atoms[i].element.name}.${atoms[i].bonds.length}${SMALL_IDENT}`;
       curStr += `${atoms[i].residue._sequence}${SMALL_IDENT}${atoms[i].residue._type.getName()}${atoms[i].residue._sequence}${SMALL_IDENT}`;
       curStr += atoms[i].charge.toFixed(4);
       result.push(curStr);
